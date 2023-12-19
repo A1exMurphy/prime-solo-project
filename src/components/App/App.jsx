@@ -20,6 +20,13 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+//import components I've created
+import BeerCollection from '../BeerCollection/BeerCollection';
+import AddBrew from '../AddBrew/AddBrew';
+import EditBrew from '../EditBrew/EditBrew';
+import TappedBeers from '../TappedBeers/TappedBeers';
+import ChangeTheTap from '../ChangeTheTap/ChangeTheTap';
+
 import './App.css';
 
 function App() {
@@ -38,6 +45,26 @@ function App() {
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
+
+          <Route exact path="/beercollection">
+            <BeerCollection />
+          </Route>
+
+          <Route exact path="/addbrew">
+            <AddBrew />
+          </Route>
+
+          <Route exact path="/editbrew">
+            <EditBrew />
+          </Route>
+
+          <Route exact path="/tappedbeers">
+            <TappedBeers />
+          </Route>
+
+          <Route exact path="/changethetap">
+            <ChangeTheTap />
+          </Route>
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
