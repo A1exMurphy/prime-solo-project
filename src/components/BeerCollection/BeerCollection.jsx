@@ -1,4 +1,5 @@
 import React from 'react';
+import NavMenu from '../NavMenu/NavMenu';
 
 import { useHistory } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ function BeerCollection() {
 
   return (
     <div>
-
+        <NavMenu />
       <center>
         <div>Beer Collection</div>
       </center>
