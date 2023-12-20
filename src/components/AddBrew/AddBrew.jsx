@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 function AddBrew() {
   const history = useHistory();
+  const dispatch = useDispatch();
+
 
   const [beerName, setBeerName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -14,15 +16,15 @@ function AddBrew() {
     
     let newBeer = {
       beer_name: beerName,
-      image: imageUrl,
-      notes: notes
+      notes: notes,
+      image: imageUrl
     }
     console.log(newBeer, "new beer")
     
-    // dispatch({
-    //   type: "ADD_BEER",
-    //   payload: {newBeer}
-    // });
+    dispatch({
+      type: "ADD_BREW",
+      payload: newBeer
+    });
 
     setBeerName('');
     setImageUrl('');
