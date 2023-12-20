@@ -6,7 +6,20 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+
+    const getCollection = 
+    `
+    SELECT * FROM "beers";
+    `
+  
+    pool.query(getCollection)
+        .then((result) => {
+            res.send(result.rows)
+        })
+        .catch((err) => {
+            console.log(err, "error in GET query")
+            res.sendStatus(500)
+        })
 });
 
 /**
