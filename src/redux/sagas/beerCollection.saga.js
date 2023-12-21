@@ -4,15 +4,18 @@ import axios from 'axios';
 
 //generator function to pass an axios POST to server
 function* getCollection() {
-    
+    // console.log('start GET request')
+
     try {
-        axios({
+        const response = yield axios({
             method: 'GET',
             url: `/api/brew`,
         })
     yield put({
-        type: 'FETCH_BREWS'
+        type: 'SET_COLLECTION',
+        payload: response.data
     })
+
 } catch(error) {
     console.log(error, 'Error in GET route')
 }};

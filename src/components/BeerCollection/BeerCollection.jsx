@@ -1,21 +1,38 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import NavMenu from '../NavMenu/NavMenu';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 function BeerCollection() {
-  const history = useHistory();
+  const beerCollection  = useSelector((store) => store.brews)
   const dispatch  = useDispatch();
 
+  useEffect(() => {
+    // console.log('run fetchCollection function')
+    fetchCollection();
+  }, []);
+
+  const fetchCollection = () => {
+    // console.log('start GET dispatch')
   dispatch({
-    type: 'GET_COLLECTION'
-  })
+    type: "GET_COLLECTION",
+  })    
+  }
+
 
   return (
     <div>
         <NavMenu />
       <center>
-        <div>Beer Collection</div>
+        {beerCollection && beerCollection.map((oneBrew) => {
+          return(
+            <div>
+              {oneBrew.beer_name}
+            </div>
+          )
+        })}
+        <div>Beer Collection
+        </div>
       </center>
     </div>
   );
