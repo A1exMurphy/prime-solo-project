@@ -26,6 +26,7 @@ import AddBrew from '../AddBrew/AddBrew';
 import EditBrew from '../EditBrew/EditBrew';
 import TappedBeers from '../TappedBeers/TappedBeers';
 import ChangeTheTap from '../ChangeTheTap/ChangeTheTap';
+import SelectFromCollection from '../BeerCollection/SelectFromCollection';
 
 import './App.css';
 
@@ -64,6 +65,10 @@ function App() {
 
           <Route exact path="/changethetap">
             <ChangeTheTap />
+          </Route>
+
+          <Route exact path="/selectbrew">
+            <SelectFromCollection />
           </Route>
 
           {/* Visiting localhost:3000/about will show the about page. */}

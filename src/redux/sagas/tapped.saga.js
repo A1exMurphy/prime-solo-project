@@ -4,7 +4,7 @@ import axios from 'axios';
 
 //generator function to pass an axios GET request to server for 
 function* getTapped() {
-    // console.log('start GET request')
+    console.log('start GET request')
 
     try {
         const response = yield axios({
