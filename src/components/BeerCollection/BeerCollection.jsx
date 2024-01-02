@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function BeerCollection() {
   const beerCollection  = useSelector((store) => store.brews)
   const dispatch  = useDispatch();
+  // console.log(beerCollection, "beer collection")
 
   useEffect(() => {
     // console.log('run fetchCollection function')

@@ -1,4 +1,4 @@
-const brewsReducer = (state = {}, action) => {
+const brewsReducer = (state = [{}], action) => {
   // console.log(action.payload, 'query results at store')
     switch (action.type) {
       case 'SET_COLLECTION':
