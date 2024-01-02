@@ -27,7 +27,7 @@ function BeerCollection() {
       <center>
         {beerCollection && beerCollection.map((oneBrew) => {
           return(
-            <div>
+            <div key={oneBrew.id}>
               {oneBrew.beer_name}
             </div>
           )
