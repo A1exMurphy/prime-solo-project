@@ -9,7 +9,7 @@ function ChangeTheTap() {
   const dispatch  = useDispatch();
 
   const tappedBeers = useSelector((store) => store.tapped)
-    console.log(tappedBeers, 'beers w/ is_tapped=true')
+    // console.log(tappedBeers, 'beers w/ is_tapped=true')
   
   useEffect(() => {
 

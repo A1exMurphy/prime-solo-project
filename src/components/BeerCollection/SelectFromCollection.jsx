@@ -20,6 +20,15 @@ function SelectFromCollection() {
   })    
   }
 
+  const tappedTrue = () => {
+    console.log('clicked add')
+  }
+
+  const tappedFalse = () => {
+    console.log('clicked remove')
+
+    
+  }
 
   return (
     <div>
@@ -29,11 +38,11 @@ function SelectFromCollection() {
           return(
             <div key={oneBrew.id}>
               {oneBrew.beer_name}
-              <span><button>
+              <span><button onClick={tappedTrue}>
                 add
                 </button></span>
             
-              <span><button>
+              <span><button onClick={tappedFalse}>
                 remove
                 </button></span>
             </div>
