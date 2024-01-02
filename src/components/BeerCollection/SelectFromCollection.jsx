@@ -22,12 +22,20 @@ function SelectFromCollection() {
 
   const tappedTrue = () => {
     console.log('clicked add')
+
+    dispatch({
+        type: "SET_TAPPED_TRUE",
+        payload: "true"
+    })
   }
 
   const tappedFalse = () => {
     console.log('clicked remove')
 
-    
+    dispatch({
+        type: "SET_TAPPED_FALSE",
+        payload: "false"
+    })   
   }
 
   return (

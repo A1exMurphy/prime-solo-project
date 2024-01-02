@@ -4,7 +4,7 @@ import axios from 'axios';
 
 //generator function to pass an axios GET request to server for all extant beers
 function* setTappedTrue() {
-    // console.log('start PUT request')
+    console.log('start PUT request')
 
     try {
         const response = yield axios({
