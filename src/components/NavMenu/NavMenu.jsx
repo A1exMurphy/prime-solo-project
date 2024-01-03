@@ -29,8 +29,8 @@ function NavMenu() {
 
     return (
 <div className="dropdown">
-  <button onClick={myFunction} class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
+  <button onClick={myFunction} className="dropbtn">Dropdown</button>
+  <div id="myDropdown" className="dropdown-content">
     <Link to="/beercollection">Beer Collection</Link>
     <br></br>
     <Link to="/tappedbeers">Tapped Beers</Link>

@@ -43,6 +43,10 @@ router.put('/:id', (req, res) => {
     .then((result) => {
         res.sendStatus(200)
     })
+    .catch((err) => {
+        console.log(err, "error in PUT tapped query")
+        res.sendStatus(500)
+    })
 })
 
 
