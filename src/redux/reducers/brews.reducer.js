@@ -1,4 +1,4 @@
-const brewsReducer = (state = [{}], action) => {
+const brewsReducer = (state = [], action) => {
   // console.log(action.payload, 'query results at store')
     switch (action.type) {
       case 'SET_COLLECTION':
@@ -7,8 +7,10 @@ const brewsReducer = (state = [{}], action) => {
         return state;
     }
   };
+
   
   // user will be on the redux state at:
   // state.user
+
   export default brewsReducer;
   

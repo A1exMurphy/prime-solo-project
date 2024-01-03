@@ -2,7 +2,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-//generator function to pass an axios POST to server
+//generator function to pass an axios GET request to server for all extant beers
 function* getCollection() {
     // console.log('start GET request')
 
