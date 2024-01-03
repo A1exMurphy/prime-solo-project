@@ -1,5 +1,7 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import NavMenu from '../NavMenu/NavMenu';
+
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -7,6 +9,8 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
+        <NavMenu />
+
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
