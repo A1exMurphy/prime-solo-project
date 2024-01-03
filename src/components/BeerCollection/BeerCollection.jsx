@@ -25,16 +25,18 @@ function BeerCollection() {
     <div>
         <NavMenu />
       <center>
+        <h3>Beer Collection
+        </h3>
+        </center>
         {beerCollection && beerCollection.map((oneBrew) => {
           return(
-            <div key={oneBrew.id}>
-              {oneBrew.beer_name}
+            <div 
+              className="beerList"
+              key={oneBrew.id}>
+                {oneBrew.beer_name}
             </div>
           )
         })}
-        <div>Beer Collection
-        </div>
-      </center>
     </div>
   );
 }

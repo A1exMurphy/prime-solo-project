@@ -14,6 +14,18 @@ img {
   max-width: 100%;
 }
 
+.beerList {
+  padding-left: 50px;
+  padding-bottom: 10px;
+
+}
+
+.notes {
+  padding-left: 50px;
+  text-align: left;
+  font-style: italic;
+}
+
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */

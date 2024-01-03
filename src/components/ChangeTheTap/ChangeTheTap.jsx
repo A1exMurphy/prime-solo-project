@@ -33,11 +33,15 @@ function ChangeTheTap() {
     <div>
         <NavMenu />
       <center>
-        <div>Change The Tap</div>
+        <h3>Change The Tap</h3>
+        </center>
           {tappedBeers && tappedBeers.map((tap) => {
             return(
-              <div>
-                {tap.beer_name}
+              <div 
+                className="beerList"
+                key={tap.id}>
+                  <button>Change</button>
+                  {tap.beer_name}
                 </div>
             )
           })}
@@ -45,7 +49,6 @@ function ChangeTheTap() {
           onClick={beerCollection}
           >Add Tap
         </button>
-      </center>
     </div>
   );
 }

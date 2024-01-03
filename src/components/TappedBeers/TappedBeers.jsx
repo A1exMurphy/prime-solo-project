@@ -23,15 +23,22 @@ function TappedBeers() {
     <div>
         <NavMenu />
       <center>
-        <div>Tapped Beers</div>
+        <h3>Tapped Beers</h3>
+        </center>
         {tappedBeers.map && tappedBeers.map((oneBrew) => {
           return(
-            <div key={oneBrew.id}>
-              {oneBrew.beer_name}
+            <div 
+              className="beerList"
+              key={oneBrew.id}>
+                {oneBrew.beer_name}
+                <span 
+                  className="notes"
+                  >
+                  {oneBrew.notes}
+                </span>
             </div>
           )
         })}
-      </center>
     </div>
   );
 }
