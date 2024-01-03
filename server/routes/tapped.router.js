@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 
 // PUT route to add/remove from tapped list
 router.put('/:id', (req, res) => {
-    console.log('in PUT tapped query', req.params.id, req.body.tapped)
+    console.log('in PUT tapped query')
 
     const changeTapped = 
     `

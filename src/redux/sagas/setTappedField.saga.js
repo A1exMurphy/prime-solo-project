@@ -7,12 +7,16 @@ function* setTappedStatus(action) {
     // console.log('start PUT request', action.payload)
 
     try {
+        //Variables created from payload to more clearly communicate code function
         const selectedBeerID = action.payload.oneBrew.id;
-        const selectedTappedStatus = action.payload.tapped;
+        const selectedTappedStatus = {tapped: action.payload.tapped};
+        // console.log(selectedTappedStatus, 'tapped status')
+
+
         const response = yield axios({
             method: 'PUT',
             url: `/api/tapped/${selectedBeerID}`,
-            data: action.payload,
+            data: selectedTappedStatus,
         })
     yield put({
         type: 'SET_TAPPED',
