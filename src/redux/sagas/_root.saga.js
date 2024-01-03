@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import addBrewSaga from './addBrew.saga';
 import getCollectionSaga from './beerCollection.saga';
 import getTappedSaga from './tapped.saga';
+import setTappedFieldSaga from './setTappedField.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     addBrewSaga(),
     getCollectionSaga(),
     getTappedSaga(),
+    setTappedFieldSaga(),
   ]);
 }

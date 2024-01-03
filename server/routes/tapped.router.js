@@ -1,3 +1,4 @@
+
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -24,6 +25,25 @@ router.get('/', (req, res) => {
             res.sendStatus(500)
         })
 });
+
+
+// PUT route to add/remove from tapped list
+router.put('/:id', (req, res) => {
+    console.log('in PUT tapped query', req.params.id, req.body.tapped)
+
+    const changeTapped = 
+    `
+    UPDATE "beers"
+        SET "is_tapped" = ${req.body.tapped}
+        WHERE "id" = ${req.params.id};
+
+    `
+
+    pool.query(changeTapped)
+    .then((result) => {
+        res.sendStatus(200)
+    })
+})
 
 
 module.exports = router;

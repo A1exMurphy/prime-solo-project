@@ -3,13 +3,16 @@ import axios from 'axios';
 
 
 //generator function to pass an axios GET request to server for all extant beers
-function* setTappedTrue() {
-    console.log('start PUT request')
+function* setTappedStatus(action) {
+    // console.log('start PUT request', action.payload)
 
     try {
+        const selectedBeerID = action.payload.oneBrew.id;
+        const selectedTappedStatus = action.payload.tapped;
         const response = yield axios({
             method: 'PUT',
-            url: `/api/brew/${action.payload}`,
+            url: `/api/tapped/${selectedBeerID}`,
+            data: action.payload,
         })
     yield put({
         type: 'SET_TAPPED',
@@ -21,12 +24,12 @@ function* setTappedTrue() {
 }};
 
 function* setTappedFalse() {
-    // console.log('start PUT request')
+    console.log('start PUT request', payload)
 
     try {
         const response = yield axios({
             method: 'PUT',
-            url: `/api/brew${action.payload}`,
+            url: `/api/tapped/${action.payload}`,
         })
     yield put({
         type: 'SET_TAPPED',
@@ -38,7 +41,7 @@ function* setTappedFalse() {
 }};
 
 function* setTappedFieldSaga() {
-    yield takeLatest('SET_TAPPED_TRUE', setTappedTrue);
+    yield takeLatest('SET_TAPPED_STATUS', setTappedStatus);
     yield takeLatest('SET_TAPPED_FALSE', setTappedFalse);
 
   }

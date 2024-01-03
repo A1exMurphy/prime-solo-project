@@ -20,21 +20,22 @@ function SelectFromCollection() {
   })    
   }
 
-  const tappedTrue = () => {
-    console.log('clicked add')
+  const tappedTrue = (oneBrew) => {
+    // console.log('clicked add')
+
 
     dispatch({
-        type: "SET_TAPPED_TRUE",
-        payload: "true"
+        type: "SET_TAPPED_STATUS",
+        payload: {oneBrew: oneBrew, tapped: "true"}
     })
   }
 
-  const tappedFalse = () => {
-    console.log('clicked remove')
+  const tappedFalse = (oneBrew) => {
+    // console.log('clicked remove')
 
     dispatch({
-        type: "SET_TAPPED_FALSE",
-        payload: "false"
+        type: "SET_TAPPED_STATUS",
+        payload: {oneBrew: oneBrew, tapped: "false"}
     })   
   }
 
@@ -46,11 +47,11 @@ function SelectFromCollection() {
           return(
             <div key={oneBrew.id}>
               {oneBrew.beer_name}
-              <span><button onClick={tappedTrue}>
+              <span><button onClick={() => tappedTrue(oneBrew)}>
                 add
                 </button></span>
             
-              <span><button onClick={tappedFalse}>
+              <span><button onClick={() => tappedFalse(oneBrew)}>
                 remove
                 </button></span>
             </div>
