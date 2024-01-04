@@ -20,6 +20,18 @@ function BeerCollection() {
   })    
   }
 
+  const updateCollection = () => {
+    console.log('update buttoning')
+  }
+
+  const removeFromCollection = () => {
+    console.log('remove buttoning')
+  }
+
+  const addToCollection = () => {
+    console.log('add buttoning')
+  }
+
 
   return (
     <div>
@@ -33,10 +45,13 @@ function BeerCollection() {
             <div 
               className="beerList"
               key={oneBrew.id}>
+                <button onClick={updateCollection}>Update</button>
+                <button onClick={removeFromCollection}>Remove</button>
                 {oneBrew.beer_name}
             </div>
           )
         })}
+        <div><button onClick={addToCollection}>Add to Collection</button></div>
     </div>
   );
 }
