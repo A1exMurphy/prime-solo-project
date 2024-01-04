@@ -1,11 +1,15 @@
 import { React, useEffect } from 'react';
 import NavMenu from '../NavMenu/NavMenu';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 
 function BeerCollection() {
   const beerCollection  = useSelector((store) => store.brews)
   const dispatch  = useDispatch();
+  const history = useHistory();
+
   // console.log(beerCollection, "beer collection")
 
   useEffect(() => {
@@ -30,6 +34,8 @@ function BeerCollection() {
 
   const addToCollection = () => {
     console.log('add buttoning')
+
+    history.push('/addbrew')
   }
 
 

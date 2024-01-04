@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import NavMenu from '../NavMenu/NavMenu';
 
 function AddBrew() {
   const history = useHistory();
@@ -31,9 +32,15 @@ function AddBrew() {
     setNotes('');
 
   }
+
+  const backToCollection = () => {
+    history.push('/beercollection')
+  }
+
+
   return (
     <div>
-
+      <NavMenu />
       <center>
         <form onSubmit={onSubmit}>
           <input
@@ -67,6 +74,7 @@ function AddBrew() {
             Add to Collection
           </button>
         </form>
+          <button onClick={backToCollection}>Back to Collection</button>
       </center>
     </div>
   );
