@@ -24,9 +24,23 @@ function* removeFromCollection(action) {
 
 function* updateBeerInCollection(action) {
     console.log('start PUT request for beer update')
+    const selectedBeerID = action.payload;
+    
 
+    try {
+        const response = yield axios({
+            method: 'PUT',
+            url: `/api/brew/${selectedBeerID}`,
+        })
+    yield put({
+        type: 'GET_COLLECTION',
+        payload: response.data
+    })
 
-}
+} catch(error) {
+    console.log(error, 'Error in GET route')
+}};
+
 
 function* updateCollectionSaga() {
     yield takeLatest('REMOVE_FROM_COLLECTION', removeFromCollection);
