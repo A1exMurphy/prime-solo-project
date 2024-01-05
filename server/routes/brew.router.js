@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    console.log(req.body, "req.body")
+    console.log("in POST query")
 
   const insertNewBeer = 
     `
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         req.body.notes,
         req.body.image
     ]
-    console.log(newBeerValues, 'beer to be added to database');
+    
 
     pool.query(insertNewBeer, newBeerValues)
         .then((result) => {
@@ -52,5 +52,24 @@ router.post('/', (req, res) => {
             res.sendStatus(500)
         })
 });
+
+router.delete('/:id', (req, res) => {
+    console.log("in DELETE query", req.body)
+
+    const removeBeer = 
+        `
+        DElETE FROM "beers"
+	        WHERE "id" = ${req.params.id};
+        `
+
+        pool.query(removeBeer)
+            .then((result) => {
+                res.sendStatus(200)
+            })
+            .catch((err) => {
+                console.log(err, 'error in DELETE query')
+                res.sendStatus(500)
+            })
+})
 
 module.exports = router;

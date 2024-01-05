@@ -28,12 +28,17 @@ function BeerCollection() {
     console.log('update buttoning')
   }
 
-  const removeFromCollection = () => {
+  const removeFromCollection = (id) => {
     console.log('remove buttoning')
+
+    dispatch({
+      type: "REMOVE_FROM_COLLECTION",
+      payload: id
+    })
   }
 
   const addToCollection = () => {
-    console.log('add buttoning')
+    // console.log('add buttoning')
 
     history.push('/addbrew')
   }
@@ -52,7 +57,7 @@ function BeerCollection() {
               className="beerList"
               key={oneBrew.id}>
                 <button onClick={updateCollection}>Update</button>
-                <button onClick={removeFromCollection}>Remove</button>
+                <button onClick={() => removeFromCollection(oneBrew.id)}>Remove</button>
                 {oneBrew.beer_name}
             </div>
           )
