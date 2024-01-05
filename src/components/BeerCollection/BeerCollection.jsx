@@ -24,8 +24,13 @@ function BeerCollection() {
   })    
   }
 
-  const updateCollection = () => {
+  const updateCollection = (id) => {
     console.log('update buttoning')
+
+    dispatch({
+      type: 'UPDATE_BEER_IN_COLLECTION',
+      payload: id
+    })
   }
 
   const removeFromCollection = (id) => {
@@ -56,7 +61,7 @@ function BeerCollection() {
             <div 
               className="beerList"
               key={oneBrew.id}>
-                <button onClick={updateCollection}>Update</button>
+                <button onClick={() => updateCollection(oneBrew.id)}>Update</button>
                 <button onClick={() => removeFromCollection(oneBrew.id)}>Remove</button>
                 {oneBrew.beer_name}
             </div>

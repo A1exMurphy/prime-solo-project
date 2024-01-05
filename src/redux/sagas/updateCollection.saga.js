@@ -4,7 +4,7 @@ import axios from 'axios';
 
 //generator function to pass an axios GET request to server for all extant beers
 function* removeFromCollection(action) {
-    console.log(action.payload, 'start DELETE request')
+    console.log('start DELETE request')
     const selectedBeerID = action.payload;
 
 
@@ -22,8 +22,15 @@ function* removeFromCollection(action) {
     console.log(error, 'Error in GET route')
 }};
 
+function* updateBeerInCollection(action) {
+    console.log('start PUT request for beer update')
+
+
+}
+
 function* updateCollectionSaga() {
     yield takeLatest('REMOVE_FROM_COLLECTION', removeFromCollection);
+    yield takeLatest('UPDATE_BEER_IN_COLLECTION', updateBeerInCollection);
   }
   
   export default updateCollectionSaga;
