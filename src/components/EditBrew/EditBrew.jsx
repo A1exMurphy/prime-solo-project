@@ -1,12 +1,14 @@
 import { React, useState } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 
 
 function EditBrew() {
+  const selectedBrew  = useSelector((store) => store.brewForUpdate)
   const history = useHistory();
-
+  const dispatch = useDispatch();
+console.log(selectedBrew[0], "store result for selected brew")
 
   const [beerName, setBeerName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -42,11 +44,12 @@ function EditBrew() {
     <div>
       <NavMenu />
       <center>
+        
         <form onSubmit={onSubmit}>
           <input
             id='beerName'
             type='text'
-            placeholder='beer name'
+            placeholder={`${selectedBrew.beer_name}`}
             onChange={(e) => setBeerName(e.target.value)}
             value={beerName}
               >
@@ -55,7 +58,7 @@ function EditBrew() {
           <input
             id='imageUrl'
             type='text'
-            placeholder='Image url' 
+            placeholder={`${selectedBrew.imageUrl}`}
             onChange={(e) => setImageUrl(e.target.value)}
             value={imageUrl}
               >        
@@ -64,14 +67,14 @@ function EditBrew() {
           <input
             id='notes'
             type='textbox'
-            placeholder='notes'
+            placeholder={`${selectedBrew.notes}`}
             onChange={(e) => setNotes(e.target.value)}
             value={notes}
               >         
           </input>
 
           <button>
-            Add to Collection
+            Update Brew
           </button>
         </form>
           <button onClick={backToCollection}>Back to Collection</button>

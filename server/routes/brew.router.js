@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+//GET route to grab all beers in user's collection
 router.get('/', (req, res) => {
     console.log('in GET query')
 
@@ -24,9 +22,7 @@ router.get('/', (req, res) => {
         })
 });
 
-/**
- * POST route template
- */
+//POST route to add a new beer to user's collection
 router.post('/', (req, res) => {
     console.log("in POST query")
 
@@ -74,32 +70,6 @@ router.delete('/:id', (req, res) => {
                 console.log(err, 'error in DELETE query')
                 res.sendStatus(500)
             })
-})
-
-
-//PUT route to update details of a beer existing in beer collection
-router.put('/:id', (req, res) => {
-    console.log("in PUT query")
-
-    const updateBeer =
-    `
-    UPDATE "beers"
-        SET "beer_name" = 'Legacy Pilsner',
-            "notes" = 'a recreation of the Kewaunee brewing pils',
-            "is_tapped" = 'true',
-            "image" = 'something'
-
-        WHERE "id" = 1;
-    `
-
-    pool.query(updateBeer)
-        .then((result) => {
-            res.sendStatus(200)
-        })
-        .catch((err) => {
-            console.log(err, 'error in UPDATE query')
-            res.sendStatus(500)
-        })
 })
 
 
