@@ -27,10 +27,11 @@ function BeerCollection() {
   const updateCollection = (id) => {
     console.log('update buttoning')
 
-    dispatch({
-      type: 'UPDATE_BEER_IN_COLLECTION',
-      payload: id
-    })
+    // dispatch({
+    //   type: 'UPDATE_BEER_IN_COLLECTION',
+    //   payload: id
+    // })
+    history.push('/editbrew')
   }
 
   const removeFromCollection = (id) => {
