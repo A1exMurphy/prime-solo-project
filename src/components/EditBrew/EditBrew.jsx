@@ -7,6 +7,7 @@ import NavMenu from '../NavMenu/NavMenu';
 function EditBrew() {
   const history = useHistory();
 
+
   const [beerName, setBeerName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [notes, setNotes] = useState('');
@@ -15,16 +16,15 @@ function EditBrew() {
   const onSubmit = () => {
 
     
-    let newBeer = {
+    let newInputs = {
       beer_name: beerName,
       notes: notes,
       image: imageUrl
     }
-    console.log(newBeer, "new beer")
     
     dispatch({
-      type: "ADD_BREW",
-      payload: newBeer
+      type: "UPDATE_BREW",
+      payload: newInputs
     });
 
     setBeerName('');

@@ -25,12 +25,13 @@ function BeerCollection() {
   }
 
   const updateCollection = (id) => {
-    console.log('update buttoning')
+    console.log(id, 'update buttoning with this id')
 
-    // dispatch({
-    //   type: 'UPDATE_BEER_IN_COLLECTION',
-    //   payload: id
-    // })
+    dispatch({
+      type: 'GET_INPUTS_FROM_COLLECTION',
+      payload: id
+    })
+
     history.push('/editbrew')
   }
 
