@@ -8,17 +8,18 @@ function EditBrew() {
   const selectedBrew  = useSelector((store) => store.brewForUpdate)
   const history = useHistory();
   const dispatch = useDispatch();
-console.log(selectedBrew[0], "store result for selected brew")
 
-  const [beerName, setBeerName] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [notes, setNotes] = useState('');
+  //set local state values to the current property values in redux state
+  const [beerName, setBeerName] = useState(selectedBrew.beer_name);
+  const [imageUrl, setImageUrl] = useState(selectedBrew.image);
+  const [notes, setNotes] = useState(selectedBrew.notes);
 
   //function to collect values from form inputs and dispatch to saga generator
   const onSubmit = () => {
 
     
     let newInputs = {
+      beerID: selectedBrew.id,
       beer_name: beerName,
       notes: notes,
       image: imageUrl

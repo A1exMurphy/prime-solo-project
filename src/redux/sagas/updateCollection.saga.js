@@ -42,14 +42,21 @@ function* getInputsFromCollection(action)  {
 }};
 
 function* updateBeerInCollection(action) {
-    console.log('start PUT request for beer update')
-    const selectedBeerID = action.payload;
+    console.log('start PUT request for beer update', action.payload)
+    const selectedBeerID = action.payload.id;
+    const brewInputValues = {
+        id: action.payload.beerID,
+        beer_name: action.payload.beer_name,
+        notes: action.payload.notes,
+        image: action.payload.image,
+    }
     
 
     try {
         const response = yield axios({
             method: 'PUT',
-            url: `/api/brew/${selectedBeerID}`,
+            url: `/api/updatebrew/${selectedBeerID}`,
+            data: brewInputValues
         })
     yield put({
         type: 'GET_COLLECTION',
@@ -64,6 +71,7 @@ function* updateBeerInCollection(action) {
 function* updateCollectionSaga() {
     yield takeLatest('REMOVE_FROM_COLLECTION', removeFromCollection);
     yield takeLatest('GET_INPUTS_FROM_COLLECTION', getInputsFromCollection);
+    yield takeLatest('UPDATE_BREW', updateBeerInCollection);
   }
   
   export default updateCollectionSaga;
