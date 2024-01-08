@@ -30,9 +30,8 @@ function EditBrew() {
       payload: newInputs
     });
 
-    setBeerName('');
-    setImageUrl('');
-    setNotes('');
+    history.push('/beercollection')
+
 
   }
 

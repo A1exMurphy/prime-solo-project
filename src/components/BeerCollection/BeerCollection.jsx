@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function BeerCollection() {
+  //select redux state containing all brews in a user's collection
   const beerCollection  = useSelector((store) => store.brews)
   const dispatch  = useDispatch();
   const history = useHistory();
@@ -16,6 +17,7 @@ function BeerCollection() {
     // console.log('run fetchCollection function')
     fetchCollection();
   }, []);
+
 
   const fetchCollection = () => {
     // console.log('start GET dispatch')
@@ -32,7 +34,7 @@ function BeerCollection() {
       payload: id
     })
 
-    history.push('/editbrew')
+        history.push('/editbrew')
   }
 
   const removeFromCollection = (id) => {
