@@ -9,10 +9,11 @@ router.get('/:id', (req, res) => {
     const getBeer = 
         `
         SELECT * FROM "beers"
-            WHERE "id" = ${req.params.id};
+            WHERE "id" = $1;
         `
+        beerID = [req.params.id]
 
-        pool.query(getBeer)
+        pool.query(getBeer, beerID)
             .then((result) => {
                 res.send(result.rows)
             })

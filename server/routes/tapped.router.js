@@ -34,12 +34,13 @@ router.put('/:id', (req, res) => {
     const changeTapped = 
     `
     UPDATE "beers"
-        SET "is_tapped" = ${req.body.tapped}
-        WHERE "id" = ${req.params.id};
+        SET "is_tapped" = $1
+        WHERE "id" = $2;
 
     `
+    sqlValues = [req.body.tapped, req.params.id]
 
-    pool.query(changeTapped)
+    pool.query(changeTapped, sqlValues)
     .then((result) => {
         res.sendStatus(200)
     })

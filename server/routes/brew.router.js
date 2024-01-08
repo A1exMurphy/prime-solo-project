@@ -61,10 +61,12 @@ router.delete('/:id', (req, res) => {
     const removeBeer = 
         `
         DElETE FROM "beers"
-	        WHERE "id" = ${req.params.id};
+	        WHERE "id" = $1;
         `
+        beerID = [req.params.id]
 
-        pool.query(removeBeer)
+
+        pool.query(removeBeer, beerID)
             .then((result) => {
                 res.sendStatus(200)
             })
