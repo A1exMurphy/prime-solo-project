@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function BeerCollection() {
+  //select redux state containing all brews in a user's collection
   const beerCollection  = useSelector((store) => store.brews)
   const dispatch  = useDispatch();
   const history = useHistory();
@@ -17,6 +18,7 @@ function BeerCollection() {
     fetchCollection();
   }, []);
 
+
   const fetchCollection = () => {
     // console.log('start GET dispatch')
   dispatch({
@@ -24,16 +26,28 @@ function BeerCollection() {
   })    
   }
 
-  const updateCollection = () => {
-    console.log('update buttoning')
+  const updateCollection = (id) => {
+    console.log(id, 'update buttoning with this id')
+
+    dispatch({
+      type: 'GET_INPUTS_FROM_COLLECTION',
+      payload: id
+    })
+
+        history.push('/editbrew')
   }
 
-  const removeFromCollection = () => {
+  const removeFromCollection = (id) => {
     console.log('remove buttoning')
+
+    dispatch({
+      type: "REMOVE_FROM_COLLECTION",
+      payload: id
+    })
   }
 
   const addToCollection = () => {
-    console.log('add buttoning')
+    // console.log('add buttoning')
 
     history.push('/addbrew')
   }
@@ -51,8 +65,8 @@ function BeerCollection() {
             <div 
               className="beerList"
               key={oneBrew.id}>
-                <button onClick={updateCollection}>Update</button>
-                <button onClick={removeFromCollection}>Remove</button>
+                <button onClick={() => updateCollection(oneBrew.id)}>Update</button>
+                <button onClick={() => removeFromCollection(oneBrew.id)}>Remove</button>
                 {oneBrew.beer_name}
             </div>
           )

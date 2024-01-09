@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+//GET route to grab all beers in user's collection
 router.get('/', (req, res) => {
     console.log('in GET query')
 
@@ -24,11 +22,9 @@ router.get('/', (req, res) => {
         })
 });
 
-/**
- * POST route template
- */
+//POST route to add a new beer to user's collection
 router.post('/', (req, res) => {
-    console.log(req.body, "req.body")
+    console.log("in POST query")
 
   const insertNewBeer = 
     `
@@ -41,7 +37,7 @@ router.post('/', (req, res) => {
         req.body.notes,
         req.body.image
     ]
-    console.log(newBeerValues, 'beer to be added to database');
+    
 
     pool.query(insertNewBeer, newBeerValues)
         .then((result) => {
@@ -52,5 +48,29 @@ router.post('/', (req, res) => {
             res.sendStatus(500)
         })
 });
+
+
+//DELETE route to remove a beer from beer collection
+router.delete('/:id', (req, res) => {
+    console.log("in DELETE query", req.body)
+
+    const removeBeer = 
+        `
+        DElETE FROM "beers"
+	        WHERE "id" = $1;
+        `
+        beerID = [req.params.id]
+
+
+        pool.query(removeBeer, beerID)
+            .then((result) => {
+                res.sendStatus(200)
+            })
+            .catch((err) => {
+                console.log(err, 'error in DELETE query')
+                res.sendStatus(500)
+            })
+})
+
 
 module.exports = router;

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 
+
+//unresolved issue: when a tap is changed, back button breaks page render
 function ChangeTheTap() {
   const history = useHistory();
   const dispatch  = useDispatch();
@@ -39,15 +41,15 @@ function ChangeTheTap() {
             return(
               <div 
                 className="beerList"
-                key={tap.id}>
-                  <button>Change</button>
-                  {tap.beer_name}
+                key={tap.id}
+                  >
+                    {tap.beer_name}
                 </div>
             )
           })}
         <button
           onClick={beerCollection}
-          >Add Tap
+          >Change Taps
         </button>
     </div>
   );
