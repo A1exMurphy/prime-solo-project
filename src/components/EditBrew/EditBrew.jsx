@@ -9,10 +9,59 @@ function EditBrew() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  //Intitially trying to use local state to render onChange and redux state to render
+  //initial values, was causing async problem
   //set local state values to the current property values in redux state
-  const [beerName, setBeerName] = useState(selectedBrew.beer_name);
-  const [imageUrl, setImageUrl] = useState(selectedBrew.image);
-  const [notes, setNotes] = useState(selectedBrew.notes);
+
+  // const [beerName, setBeerName] = useState(selectedBrew.beer_name);
+  // const [imageUrl, setImageUrl] = useState(selectedBrew.image);
+  // const [notes, setNotes] = useState(selectedBrew.notes);
+
+  //functions to collect inputs as they are changed and dispatch changes to redux.
+  const name = (e, action) => {
+    event.preventDefault();
+    console.log('somethings happening')
+
+    dispatch({
+      type: 'SET_BREW_FOR_UPDATE',
+      payload: {
+        id: selectedBrew.id,
+        beer_name: event.target.value,
+        image: document.getElementById('imageUrl').value,
+        notes: document.getElementById('notes').value
+      }
+    })
+  }
+
+  const image = (e, action) => {
+    event.preventDefault();
+    console.log('somethings happening')
+
+    dispatch({
+      type: 'SET_BREW_FOR_UPDATE',
+      payload: {
+        id: selectedBrew.id,
+        beer_name: document.getElementById('beerName').value,
+        image: event.target.value,
+        notes: document.getElementById('notes').value
+      }
+    })
+  }
+
+  const notes = (e, action) => {
+    event.preventDefault();
+    console.log('somethings happening')
+
+    dispatch({
+      type: 'SET_BREW_FOR_UPDATE',
+      payload: {
+        id: selectedBrew.id,
+        beer_name: document.getElementById('beerName').value,
+        image: document.getElementById('imageUrl').value,
+        notes: event.target.value
+      }
+    })
+  }
 
   //function to collect values from form inputs and dispatch to saga generator
   const onSubmit = () => {
@@ -20,9 +69,9 @@ function EditBrew() {
     
     let newInputs = {
       beerID: selectedBrew.id,
-      beer_name: beerName,
-      notes: notes,
-      image: imageUrl
+      beer_name: document.getElementById('beerName').value,
+      notes: document.getElementById('notes').value,
+      image: document.getElementById('imageUrl').value
     }
     
     dispatch({
@@ -50,7 +99,7 @@ function EditBrew() {
             id='beerName'
             type='text'
             placeholder={`${selectedBrew.beer_name}`}
-            onChange={(e) => setBeerName(e.target.value)}
+            onChange={(e) => name(e.target.value)}
             value={`${selectedBrew.beer_name}`}
               >
           </input>
@@ -58,9 +107,9 @@ function EditBrew() {
           <input
             id='imageUrl'
             type='text'
-            placeholder={`${selectedBrew.imageUrl}`}
-            onChange={(e) => setImageUrl(e.target.value)}
-            value={`${selectedBrew.imageUrl}`}
+            placeholder={`${selectedBrew.image}`}
+            onChange={(e) => image(e.target.value)}
+            value={`${selectedBrew.image}`}
               >        
           </input>
 
@@ -68,7 +117,7 @@ function EditBrew() {
             id='notes'
             type='textbox'
             placeholder={`${selectedBrew.notes}`}
-            onChange={(e) => setNotes(e.target.value)}
+            onChange={(e) => notes(e.target.value)}
             value={`${selectedBrew.notes}`}
               >         
           </input>
