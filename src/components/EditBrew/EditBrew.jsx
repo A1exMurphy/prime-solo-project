@@ -51,7 +51,7 @@ function EditBrew() {
             type='text'
             placeholder={`${selectedBrew.beer_name}`}
             onChange={(e) => setBeerName(e.target.value)}
-            value={beerName}
+            value={`${selectedBrew.beer_name}`}
               >
           </input>
 
@@ -60,7 +60,7 @@ function EditBrew() {
             type='text'
             placeholder={`${selectedBrew.imageUrl}`}
             onChange={(e) => setImageUrl(e.target.value)}
-            value={imageUrl}
+            value={`${selectedBrew.imageUrl}`}
               >        
           </input>
 
@@ -69,7 +69,7 @@ function EditBrew() {
             type='textbox'
             placeholder={`${selectedBrew.notes}`}
             onChange={(e) => setNotes(e.target.value)}
-            value={notes}
+            value={`${selectedBrew.notes}`}
               >         
           </input>
 

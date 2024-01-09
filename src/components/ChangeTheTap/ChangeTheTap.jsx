@@ -41,15 +41,15 @@ function ChangeTheTap() {
             return(
               <div 
                 className="beerList"
-                key={tap.id}>
-                  <button>Change</button>
-                  {tap.beer_name}
+                key={tap.id}
+                  >
+                    {tap.beer_name}
                 </div>
             )
           })}
         <button
           onClick={beerCollection}
-          >Add Tap
+          >Change Taps
         </button>
     </div>
   );
