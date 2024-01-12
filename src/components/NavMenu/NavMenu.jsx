@@ -3,6 +3,7 @@ import './NavMenu.css';
 
 
 
+
 function NavMenu() {
 
 
@@ -29,7 +30,7 @@ function NavMenu() {
 
     return (
 <div className="dropdown">
-  <button onClick={myFunction} className="dropbtn">Dropdown</button>
+  <button onClick={myFunction} className="dropbtn" ><img img src="..public/images/beer-tap-navigation-icon.png" alt="HTML5 Icon"></img></button>
   <div id="myDropdown" className="dropdown-content">
     <Link to="/beercollection">Beer Collection</Link>
     <br></br>
