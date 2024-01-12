@@ -33,6 +33,12 @@ function AddBrew() {
 
   }
 
+  const presentationInputs =  () => {
+    setBeerName('Smoke on the Water')
+    setImageUrl('some image here')
+    setNotes('A dark imperial stout with smokey notes')
+  }
+
   const backToCollection = () => {
     history.push('/beercollection')
   }
@@ -42,7 +48,7 @@ function AddBrew() {
     <div>
       <NavMenu />
       <center>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} onClick={presentationInputs}>
           <input
             id='beerName'
             type='text'

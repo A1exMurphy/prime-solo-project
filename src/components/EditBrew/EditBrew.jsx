@@ -84,6 +84,18 @@ function EditBrew() {
 
   }
 
+  const presentationInputs =  () => {
+    dispatch({
+      type: 'SET_BREW_FOR_UPDATE',
+      payload: {
+        id: selectedBrew.id,
+        beer_name: 'Smokin in the Boys Room',
+        image: 'some image here',
+        notes: 'A dark imperial stout with smokey notes'
+      }
+    })
+  }
+
   const backToCollection = () => {
     history.push('/beercollection')
   }
@@ -94,7 +106,7 @@ function EditBrew() {
       <NavMenu />
       <center>
         
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} onClick={presentationInputs}>
           <input
             id='beerName'
             type='text'

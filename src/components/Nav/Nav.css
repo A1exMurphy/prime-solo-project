@@ -9,6 +9,9 @@
   overflow: hidden;
 }
 
+img {
+  height: 50px;
+}
 .nav a {
   text-decoration: none;
 }

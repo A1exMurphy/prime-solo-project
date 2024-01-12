@@ -2,6 +2,8 @@ html,
 body,
 #react-root {
   height: 100%;
+  color: #e01616;
+  background-color: orange;
 }
 
 body {

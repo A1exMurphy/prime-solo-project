@@ -68,6 +68,7 @@ function BeerCollection() {
                 <button onClick={() => updateCollection(oneBrew.id)}>Update</button>
                 <button onClick={() => removeFromCollection(oneBrew.id)}>Remove</button>
                 {oneBrew.beer_name}
+                <span><p><img src='images/Glass-Pilsner.png'></img></p></span>
             </div>
           )
         })}
