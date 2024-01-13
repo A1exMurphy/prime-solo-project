@@ -119,3 +119,13 @@ This code is also heavily commented. We recommend reading through the comments, 
 ## Update Documentation
 
 Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
+
+## Acknowledgements
+
+*favicon image designed by Freepik
+    https://www.freepik.com/icon/beer-tap_5805121
+
+*NavMenu image designed by Flaticon
+    https://www.flaticon.com/free-icon/beer-tap_3362972
+
