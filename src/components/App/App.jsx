@@ -47,29 +47,29 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-          <Route exact path="/beercollection">
+          <ProtectedRoute exact path="/beercollection">
             <BeerCollection />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/addbrew">
+          <ProtectedRoute exact path="/addbrew">
             <AddBrew />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/editbrew">
+          <ProtectedRoute exact path="/editbrew">
             <EditBrew />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/tappedbeers">
+          <ProtectedRoute exact path="/tappedbeers">
             <TappedBeers />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/changethetap">
+          <ProtectedRoute exact path="/changethetap">
             <ChangeTheTap />
-          </Route>
+          </ProtectedRoute>
 
-          <Route exact path="/selectbrew">
+          <ProtectedRoute exact path="/selectbrew">
             <SelectFromCollection />
-          </Route>
+          </ProtectedRoute>
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
