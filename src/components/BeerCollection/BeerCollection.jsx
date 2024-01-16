@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import NavMenu from '../NavMenu/NavMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import './BeerCollection.css'
 
 
 function BeerCollection() {
@@ -65,10 +65,14 @@ function BeerCollection() {
             <div 
               className="beerList"
               key={oneBrew.id}>
+                <div className='CollectionButtons'>
                 <button onClick={() => updateCollection(oneBrew.id)}>Update</button>
                 <button onClick={() => removeFromCollection(oneBrew.id)}>Remove</button>
+                </div>
                 {oneBrew.beer_name}
-                <span><p><img src='images/Glass-Pilsner.png'></img></p></span>
+                <center>
+                    <img src='images/Glass-Pilsner.png'></img>
+                </center>
             </div>
           )
         })}

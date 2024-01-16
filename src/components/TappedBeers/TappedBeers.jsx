@@ -1,6 +1,7 @@
 import { React, useEffect } from 'react';
 import NavMenu from '../NavMenu/NavMenu';
 import { useDispatch, useSelector } from 'react-redux';
+import './TappedBeers.css';''
 
 
 function TappedBeers() {
@@ -23,7 +24,6 @@ function TappedBeers() {
     <div>
         <NavMenu />
       <center>
-        <h3>Tapped Beers</h3>
         </center>
         {tappedBeers.map && tappedBeers.map((oneBrew) => {
           return(
@@ -36,6 +36,23 @@ function TappedBeers() {
                   >
                   {oneBrew.notes}
                 </span>
+                <div class="wrapper">
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+      <div><span class="dot"></span></div>
+    </div>
             </div>
           )
         })}

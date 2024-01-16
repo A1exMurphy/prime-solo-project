@@ -37,6 +37,8 @@ function NavMenu() {
     <Link to="/tappedbeers">Tapped Beers</Link>
     <br></br>
     <Link to="/changethetap">Change the Tap</Link>
+    <br></br>
+    <Link to="/about">About</Link>
   </div>
 </div>
     )
