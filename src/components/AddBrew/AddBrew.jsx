@@ -34,9 +34,9 @@ function AddBrew() {
   }
 
   const presentationInputs =  () => {
-    // setBeerName('Smoke on the Water')
-    // setImageUrl('some image here')
-    // setNotes('A dark imperial stout with smokey notes')
+    setBeerName('Smoke on the Water')
+    setImageUrl('some image here')
+    setNotes('A dark imperial stout with smokey notes')
   }
 
   const backToCollection = () => {

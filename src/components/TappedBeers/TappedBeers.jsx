@@ -23,6 +23,23 @@ function TappedBeers() {
   return (
     <div>
         <NavMenu />
+        <div class="wrapper">
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+          <div><span class="dot"></span></div>
+    </div>
       <center>
         </center>
         {tappedBeers.map && tappedBeers.map((oneBrew) => {
@@ -33,26 +50,11 @@ function TappedBeers() {
                 {oneBrew.beer_name}
                 <span 
                   className="notes"
-                  >
-                  {oneBrew.notes}
+                  
+                  ><center>
+                  {oneBrew.notes}</center>
                 </span>
-                <div class="wrapper">
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-      <div><span class="dot"></span></div>
-    </div>
+ 
             </div>
           )
         })}

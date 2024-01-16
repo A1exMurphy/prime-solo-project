@@ -7,9 +7,10 @@
 .wrapper {
   height: 100%;
   width: 100%;
-  background: linear-gradient(180deg, #fed109, 5%, #adb000, 50%, #832c00);
+  background: linear-gradient(180deg, rgb(252, 172, 23), 5%, #e7a90e, 50%, #832c00);
   background-position: 0%;
   position: absolute;
+  opacity: 30%;
 }
 .wrapper h1 {
   top: 50%;

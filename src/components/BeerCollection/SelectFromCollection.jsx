@@ -43,6 +43,8 @@ function SelectFromCollection() {
     <div>
         <NavMenu />
       <center>
+        <h3>Beer Collection
+        </h3>
         {beerCollection && beerCollection.map((oneBrew) => {
           return(
             <div key={oneBrew.id}>
@@ -57,8 +59,6 @@ function SelectFromCollection() {
             </div>
           )
         })}
-        <div>Beer Collection
-        </div>
       </center>
     </div>
   );
